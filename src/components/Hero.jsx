@@ -1,12 +1,21 @@
+import Customer1 from '../Assets/Customer1.png'
+import Customer2 from '../Assets/Customer2.png'
+import Customer3 from '../Assets/Customer3.png'
+import Customer4 from '../Assets/Customer4.png'
+import Customer5 from '../Assets/Customer5.png'
+import Customer6 from '../Assets/Customer6.png'
+
 const avatars = [
-  { cls: 'a1', img: 12 },
-  { cls: 'a2', img: 33 },
-  { cls: 'a3', img: 14 },
-  { cls: 'a4', img: 51 },
-  { cls: 'a5', img: 60 },
-  { cls: 'a6', img: 13 },
-  { cls: 'a7', img: 68 },
-  { cls: 'a8', img: 56 },
+  { cls: 'a1', img: Customer1 },
+  { cls: 'a2', img: Customer2 },
+  { cls: 'a3', img: Customer3 },
+  { cls: 'a4', img: Customer4 },
+  { cls: 'a5', img: Customer5 },
+  { cls: 'a6', img: Customer6 },
+
+  // Optional duplicates to preserve original 8-image layout
+  { cls: 'a7', img: Customer1 },
+  { cls: 'a8', img: Customer2 },
 ]
 
 function Squiggles() {
@@ -24,6 +33,7 @@ function Squiggles() {
         strokeWidth="2"
         strokeLinecap="round"
       />
+
       <path
         d="M58 18 C36 48 80 70 58 102 C36 134 80 160 58 194"
         stroke="#f48fb1"
@@ -38,23 +48,27 @@ export default function Hero() {
   return (
     <header className="hero reveal" id="home">
       <Squiggles />
+
       <div className="crescent" />
+
       <h1>
         The <span className="hl-underline">thinkers</span> and doers were{' '}
         <span className="hl hl-pink">changing</span> the{' '}
         <span className="hl hl-green">status</span> Quo with
       </h1>
+
       <p className="lead">
         We are a team of strategists, designers communicators, researchers.
         Togeather, we belive that progress only hghappens when you refuse to
         play things safe
       </p>
+
       <div className="avatar-cluster">
         {avatars.map((a) => (
           <img
             key={a.cls}
             className={a.cls}
-            src={`https://i.pravatar.cc/240?img=${a.img}`}
+            src={a.img}
             alt="team member"
           />
         ))}
